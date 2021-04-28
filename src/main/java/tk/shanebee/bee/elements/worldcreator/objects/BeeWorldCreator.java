@@ -124,8 +124,10 @@ public class BeeWorldCreator {
             worldCreator = clone ? cloneWorld() : copyWorld();
         }
         // Create new world
-        else {
+        else if (!"plugins".equalsIgnoreCase(this.worldName)){
             worldCreator = new WorldCreator(this.worldName);
+        } else {
+            worldCreator = null;
         }
         if (worldCreator == null) return null;
 
